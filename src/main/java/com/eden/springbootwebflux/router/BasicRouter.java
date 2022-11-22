@@ -1,5 +1,6 @@
-package com.eden.springbootwebflux.redis;
+package com.eden.springbootwebflux.router;
 
+import com.eden.springbootwebflux.handler.BasicHandler;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -22,9 +23,9 @@ public class BasicRouter {
         .GET("/normal-list", serverRequest -> ServerResponse.ok().contentType(MediaType.TEXT_EVENT_STREAM)
             .body(basicHandler.findNormalList(), String.class))
         .GET("/load", serverRequest -> {
-              basicHandler.loadData();
-              return ServerResponse.ok()
-            .body(BodyInserters.fromValue("Load Data Completed"));
+          basicHandler.loadData();
+          return ServerResponse.ok()
+              .body(BodyInserters.fromValue("Load Data Completed"));
         })
         .build();
   }

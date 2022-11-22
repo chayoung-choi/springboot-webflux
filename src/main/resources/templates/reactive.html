@@ -1,19 +1,12 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta content="IE=edge" http-equiv="X-UA-Compatible">
-    <meta content="width=device-width, initial-scale=1" name="viewport">
-    <link data-th-href="@{/css/bootstrap.min.css}" rel="stylesheet">
-    <link data-th-href="@{/css/jumbotron-narrow.css}" rel="stylesheet">
-</head>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: header"/>
 <body>
 
 <div class="container">
-
     <div class="row">
         <div id="title">
-            <h1>Spring WebFlux + Thymeleaf</h1>
+            <h1><a class="text-decoration-none mr-3" href="/">⬅️</a>Reactive Stack</h1>
         </div>
         <table class="table table-striped" id="allMovies">
             <thead>

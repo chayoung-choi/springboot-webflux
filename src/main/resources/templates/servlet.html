@@ -1,32 +1,30 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="utf-8">
-    <meta content="IE=edge" http-equiv="X-UA-Compatible">
-    <meta content="width=device-width, initial-scale=1" name="viewport">
-    <link data-th-href="@{/css/bootstrap.min.css}" rel="stylesheet">
-    <link data-th-href="@{/css/jumbotron-narrow.css}" rel="stylesheet">
-    <title>Orders</title>
-</head>
+<head th:replace="fragments/header :: header"/>
 <body>
-<h1>Orders</h1>
 
-<table>
-    <thead>
-    <tr>
-        <th></th>
-        <th>Id</th>
-        <th>Amount</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="movie : ${movies}">
-        <td th:text="${movieStat.count}">1</td>
-        <td th:text="${movie.name}"></td>
-        <td style="text-align: right" th:text="${#numbers.formatCurrency(movie.score)}"></td>
-    </tr>
-    </tbody>
-</table>
+<div class="container">
+    <div class="row">
+        <div id="title">
+            <h1><a class="text-decoration-none mr-3" href="/">⬅️</a>Servlet Stack</h1>
+        </div>
+        <table class="table table-striped" id="allMovies">
+            <thead>
+            <tr>
+                <th width="50%">Name</th>
+                <th>Score</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr class="result" data-th-each="movie : ${movies}">
+                <td>[[${movie.name}]]</td>
+                <td>[[${movie.score}]]</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
 
 </body>
 </html>

@@ -1,4 +1,4 @@
-package com.eden.springbootwebflux;
+package com.eden.springbootwebflux.handler;
 
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;

@@ -1,5 +1,6 @@
-package com.eden.springbootwebflux;
+package com.eden.springbootwebflux.router;
 
+import com.eden.springbootwebflux.handler.HelloHandler;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

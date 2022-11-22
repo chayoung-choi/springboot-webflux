@@ -1,1 +1,7 @@
-
+spring:
+  redis:
+    port: 6379
+server:
+  tomcat:
+    threads:
+      max: 1000

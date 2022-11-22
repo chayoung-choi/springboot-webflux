@@ -1,4 +1,4 @@
-package com.eden.springbootwebflux.redis;
+package com.eden.springbootwebflux.handler;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.redis.connection.ReactiveRedisConnectionFactory;
@@ -18,10 +18,11 @@ import java.util.stream.IntStream;
 @Component
 @RequiredArgsConstructor
 public class BasicHandler {
+  private static final AtomicInteger count = new AtomicInteger(0);
   private final ReactiveRedisConnectionFactory factory;
   private final ReactiveRedisOperations<String, String> reactiveRedisOperations;
-  private final RedisTemplate<String , String> stringStringRedisTemplate;
-  private static final AtomicInteger count = new AtomicInteger(0);
+  private final RedisTemplate<String, String> stringStringRedisTemplate;
+  private final AtomicInteger atomicInteger = new AtomicInteger();
 
   public void loadData() {
     List<String> data = new ArrayList<>();

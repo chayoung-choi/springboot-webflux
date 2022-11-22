@@ -1,4 +1,4 @@
-package com.eden.springbootwebflux;
+package com.eden.springbootwebflux.redis;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -19,12 +19,32 @@ repositories {
 }
 
 dependencies {
+    // * thymeleaf
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+
+    // * webflux
     implementation 'org.springframework.boot:spring-boot-starter-webflux'
+
+    // * Mac M1 개발환경 이슈 처리
+    implementation 'io.netty:netty-resolver-dns-native-macos:4.1.85.Final:osx-aarch_64'
+
+    // * redis-reactive, embedded redis
+    implementation 'org.springframework.boot:spring-boot-starter-data-redis-reactive'
+    implementation('it.ozimov:embedded-redis:0.7.3') {
+        exclude group: "org.slf4j", module: "slf4j-simple"
+    }
+    testImplementation('it.ozimov:embedded-redis:0.7.3') {
+        exclude group: "org.slf4j", module: "slf4j-simple"
+    }
+
+    implementation 'junit:junit:4.13.2'
+
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'io.projectreactor:reactor-test'
 }
+
 
 tasks.named('test') {
     useJUnitPlatform()
