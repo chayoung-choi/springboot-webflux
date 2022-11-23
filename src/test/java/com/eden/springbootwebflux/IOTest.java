@@ -24,7 +24,7 @@ import static org.springframework.boot.test.context.SpringBootTest.WebEnvironmen
 public class IOTest {
   private static final String THREE_SECOND_URL = "http://localhost:8080/3second";
   private static final String INCREMENT_SECOND_URL = "http://localhost:8080/increment";
-  private static final int LOOP_COUNT = 10;
+  private static final int LOOP_COUNT = 100;
 
   private final WebClient webClient = WebClient.create();
   private final CountDownLatch count = new CountDownLatch(LOOP_COUNT);
@@ -35,14 +35,14 @@ public class IOTest {
   }
 
   @Test
-  @DisplayName("[blocking]API 10번 호출하면, 30초대가 나온다")
+  @DisplayName("[blocking]API 5번 호출하면, 15초대가 나온다")
   public void blocking() {
     final RestTemplate restTemplate = new RestTemplate();
 
     final StopWatch stopWatch = new StopWatch();
     stopWatch.start();
 
-    for (int i = 0; i < LOOP_COUNT; i++) {
+    for (int i = 0; i < 5; i++) {
       final ResponseEntity<String> response =
           restTemplate.exchange(THREE_SECOND_URL, HttpMethod.GET, HttpEntity.EMPTY, String.class);
       System.out.println(response.getBody());
@@ -102,10 +102,11 @@ public class IOTest {
   }
 
   @Test
+  @DisplayName("[nonBlocking]동일한 15초 동안 더 많은 API를 호출한다")
   public void nonBlocking3() throws InterruptedException {
     final StopWatch stopWatch = new StopWatch();
     stopWatch.start();
-    for (int i = 0; i < LOOP_COUNT; i++) {
+    for (int i = 0; i < 25; i++) {
       this.webClient
           .get()
           .uri(THREE_SECOND_URL)
@@ -117,7 +118,7 @@ public class IOTest {
           });
     }
 
-    count.await(30, TimeUnit.SECONDS);
+    count.await(15, TimeUnit.SECONDS);
     stopWatch.stop();
     System.out.println("소요 시간 : " + stopWatch.getTotalTimeSeconds());
   }

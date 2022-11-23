@@ -26,7 +26,7 @@ public class BasicHandler {
 
   public void loadData() {
     List<String> data = new ArrayList<>();
-    IntStream.range(0, 10).forEach(i -> data.add(UUID.randomUUID().toString()));
+    IntStream.range(0, 100000).forEach(i -> data.add(UUID.randomUUID().toString()));
 
     Flux<String> stringFlux = Flux.fromIterable(data);
 
