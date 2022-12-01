@@ -102,11 +102,11 @@ public class IOTest {
   }
 
   @Test
-  @DisplayName("[nonBlocking]동일한 15초 동안 더 많은 API를 호출한다")
+  @DisplayName("[nonBlocking]동일한 API 5번 호출하면, 5초대가 나온다")
   public void nonBlocking3() throws InterruptedException {
     final StopWatch stopWatch = new StopWatch();
     stopWatch.start();
-    for (int i = 0; i < 25; i++) {
+    for (int i = 0; i < 5; i++) {
       this.webClient
           .get()
           .uri(THREE_SECOND_URL)
@@ -118,7 +118,7 @@ public class IOTest {
           });
     }
 
-    count.await(15, TimeUnit.SECONDS);
+    count.await(5, TimeUnit.SECONDS);
     stopWatch.stop();
     System.out.println("소요 시간 : " + stopWatch.getTotalTimeSeconds());
   }

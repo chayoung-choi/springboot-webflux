@@ -73,7 +73,6 @@ http://localhost:8080
 * [Spring Web Reactive](https://www.devkuma.com/docs/spring-web-reactive/1-spring-webflux/)
 * [10분 테코톡 Black vs Non-Block & Sync vs Async](https://youtu.be/IdpkfygWIMk)
 * [Webflux의 개념 / Spring MVC와 간단비교](https://devuna.tistory.com/108)
-* [Spring WebFlux - ajax를 통한 데이터 파싱 예제](https://myhappyman.tistory.com/111)
 * [Raw Performance Numbers - Spring Boot 2 Webflux vs. Spring Boot 1](https://dzone.com/articles/raw-performance-numbers-spring-boot-2-webflux-vs-s)
 * [Spring WebFlux는 어떻게 적은 리소스로 많은 트래픽을 감당할까?](https://alwayspr.tistory.com/44)
 * [Spring WebFlux란?](https://heeyeah.github.io/spring/2020-02-29-web-flux/) 
